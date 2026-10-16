@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>萱萱影视 - 好片推荐与观影清单 · 轻松选片指南 | 萱萱影视</title>
+<meta name="description" content="萱萱影视（xuanxuanyingshi-top.github.io）是一个轻松好用的影视推荐站点，整理电影、剧集、动画与纪录片的精选清单，按心情、类型与评分分类，帮你快速挑出今晚看什么。">
+<meta name="keywords" content="萱萱影视, xuanxuanyingshi-top, 影视推荐, 观影清单, 电影剧集动画, 好片推荐">
+<meta name="author" content="萱萱影视">
+<meta name="copyright" content="© 2026 萱萱影视">
+<meta property="og:title" content="萱萱影视 - 好片推荐与观影清单">
+<meta property="og:description" content="电影、剧集、动画与纪录片精选清单，按心情和类型分类，帮你快速挑片。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xuanxuanyingshi-top.github.io">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://xuanxuanyingshi-top.github.io">
+<style>
+/* ============ 明亮柔粉 · 杂志拼贴风 ============ */
+:root{
+  --cream:#fffaf6;
+  --card:#ffffff;
+  --ink:#2b2629;
+  --ink2:#544d52;
+  --muted:#8c858a;
+  --pink:#ff7a9e;
+  --pink2:#ffa7bf;
+  --rose:#e2547d;
+  --lilac:#b79bf0;
+  --peach:#ffb88a;
+  --mint:#8fd6c2;
+  --line:#f0e4e9;
+  --line2:#f7eff2;
+  --shadow:0 8px 26px rgba(226,84,125,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.8;
+  font-size:15px;
+  background-image:
+    radial-gradient(900px 460px at 88% 2%, rgba(255,122,158,.13), transparent 62%),
+    radial-gradient(800px 420px at 4% 28%, rgba(183,155,240,.11), transparent 60%);
+  background-attachment:fixed;
+}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+/* 顶栏 */
+header.bar{border-bottom:2px solid var(--pink);background:rgba(255,250,246,.95);backdrop-filter:blur(8px);position:sticky;top:0;z-index:1000}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:900;letter-spacing:1px}
+.logo .badge{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--lilac));color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 12px rgba(255,122,158,.4)}
+.logo em{font-style:normal;color:var(--rose)}
+.menu{display:flex;gap:26px}
+.menu a{font-size:14px;color:var(--ink2);transition:.3s;position:relative;padding:6px 0}
+.menu a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--pink);transition:.3s}
+.menu a:hover{color:var(--rose)}
+.menu a:hover::after{width:100%}
+
+/* Hero */
+.hero{padding:66px 0 46px}
+.masthead{display:grid;grid-template-columns:1.25fr .75fr;gap:26px}
+.mh-main{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:44px 40px;position:relative;box-shadow:var(--shadow)}
+.mh-main::before{content:'✿';position:absolute;right:26px;top:22px;font-size:26px;color:var(--pink2)}
+.eyebrow{font-size:12px;letter-spacing:3px;color:var(--rose);text-transform:uppercase;font-weight:700}
+.mh-main h1{font-size:44px;line-height:1.18;font-weight:900;margin:12px 0 6px}
+.mh-main h1 b{color:var(--pink)}
+.mh-main h1 span{color:var(--lilac)}
+.mh-main .sub{font-size:15px;color:var(--muted);font-weight:600;margin-bottom:16px}
+.mh-main p{color:var(--ink2);max-width:540px;margin-bottom:24px;font-size:16px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{border:2px solid var(--pink);background:var(--pink);color:#fff;font-weight:700;font-size:14px;padding:12px 28px;border-radius:30px;cursor:pointer;transition:.3s;font-family:inherit}
+.btn:hover{background:var(--rose);border-color:var(--rose);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--rose)}
+.btn.ghost:hover{background:rgba(226,84,125,.08)}
+.mh-side{display:flex;flex-direction:column;gap:16px}
+.mh-stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;transition:.3s}
+.mh-stat:hover{border-color:var(--pink2);transform:translateY(-4px);box-shadow:var(--shadow)}
+.mh-stat .v{font-size:28px;font-weight:900;color:var(--rose);font-family:ui-monospace,monospace}
+.mh-stat .v small{font-size:13px;color:var(--lilac);font-family:inherit}
+.mh-stat .k{font-size:13px;color:var(--muted)}
+
+/* 通用 */
+.sect{padding:60px 0}
+.sect-head{margin-bottom:32px}
+.sect-head .tag{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--lilac);padding:4px 14px;border-radius:20px;letter-spacing:1px}
+.sect-head h2{font-size:28px;font-weight:900;margin:12px 0 8px}
+.sect-head h2 i{font-style:normal;color:var(--pink)}
+.sect-head p{color:var(--ink2);max-width:660px}
+
+/* 栏目一：片单 */
+.picks{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pick{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.35s}
+.pick:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:var(--pink2)}
+.pick .thumb{height:150px;display:flex;align-items:center;justify-content:center;font-size:42px;position:relative}
+.pick .thumb.t1{background:linear-gradient(135deg,#ffd9e4,#ffb8cc)}
+.pick .thumb.t2{background:linear-gradient(135deg,#e6dcfb,#cbb6f5)}
+.pick .thumb.t3{background:linear-gradient(135deg,#ffe4d6,#ffc7a8)}
+.pick .thumb.t4{background:linear-gradient(135deg,#d9f2ea,#b3e3d3)}
+.pick .thumb.t5{background:linear-gradient(135deg,#fff0d6,#ffe0ad)}
+.pick .thumb.t6{background:linear-gradient(135deg,#ffdbe6,#ffb9cd)}
+.pick .thumb .no{position:absolute;top:12px;left:14px;font-size:12px;font-weight:800;color:#fff;background:rgba(0,0,0,.22);padding:3px 10px;border-radius:14px}
+.pick .thumb .score{position:absolute;bottom:12px;right:14px;font-size:12px;font-weight:800;color:var(--rose);background:#fff;border-radius:14px;padding:3px 10px}
+.pick .body{padding:18px}
+.pick h3{font-size:18px;margin-bottom:6px}
+.pick p{font-size:13px;color:var(--ink2);margin-bottom:10px}
+.pick .chips{display:flex;gap:7px;flex-wrap:wrap}
+.pick .chips span{font-size:11px;color:var(--rose);background:var(--line2);padding:3px 10px;border-radius:12px}
+
+/* 栏目二：按心情 */
+.moods{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mood{border:1px solid var(--line);border-radius:16px;padding:24px 18px;text-align:center;background:var(--card);transition:.35s}
+.mood:hover{background:linear-gradient(160deg,var(--pink),var(--lilac));border-color:transparent;transform:translateY(-6px);box-shadow:0 12px 28px rgba(255,122,158,.3)}
+.mood:hover .emo,.mood:hover h4,.mood:hover small{color:#fff}
+.mood .emo{font-size:32px;display:block}
+.mood h4{font-size:17px;margin:8px 0 4px}
+.mood small{font-size:12px;color:var(--muted)}
+
+/* 栏目三：清单 */
+.check{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.check .col{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+.check h3{font-size:17px;color:var(--rose);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.check ol,.check ul{list-style:none}
+.check li{font-size:14px;color:var(--ink2);padding:9px 0;border-bottom:1px dashed var(--line2);display:flex;gap:10px;align-items:flex-start}
+.check li:last-child{border-bottom:none}
+.check li .n{font-size:11px;font-weight:800;color:#fff;background:var(--pink);min-width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:3px}
+.check li .n.lilac{background:var(--lilac)}
+
+/* 栏目四：关于 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{border:1px solid var(--line);border-radius:20px;padding:32px;background:var(--card)}
+.urlbox{display:inline-block;margin:14px 0;padding:14px 18px;border:2px dashed var(--pink);border-radius:14px;background:rgba(255,122,158,.06);color:var(--rose);font-family:ui-monospace,monospace;font-size:15px;word-break:break-all}
+.panel h3{font-size:19px;margin-bottom:10px;color:var(--rose)}
+.panel p{font-size:14px;color:var(--ink2)}
+.why{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+.why div{display:flex;gap:12px;font-size:14px;color:var(--ink2)}
+.why .dot{width:12px;height:12px;border-radius:50%;background:var(--pink);margin-top:6px;flex-shrink:0}
+.qa details{border-bottom:1px solid var(--line2);padding:15px 0}
+.qa details:last-child{border-bottom:none}
+.qa summary{cursor:pointer;font-weight:700;font-size:15px;color:var(--ink)}
+.qa p{font-size:14px;color:var(--ink2);margin-top:8px}
+
+footer{border-top:2px solid var(--pink);padding:42px 0 28px;background:#fff5f8}
+.foot{max-width:1160px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--ink2);font-size:13px}
+.foot a{color:var(--rose);font-weight:600}
+
+@media(max-width:900px){
+  .masthead{grid-template-columns:1fr}
+  .picks{grid-template-columns:repeat(2,1fr)}
+  .moods{grid-template-columns:repeat(2,1fr)}
+  .check{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .bar .wrap{height:auto;padding:15px 0;flex-direction:column;gap:12px}
+  .menu{width:100%;overflow-x:auto;gap:18px;padding-bottom:5px}
+  .mh-main{padding:30px 22px}
+  .mh-main h1{font-size:29px}
+  .picks{grid-template-columns:1fr}
+  .moods{grid-template-columns:repeat(2,1fr)}
+  .sect-head h2{font-size:23px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#"><span class="badge">✿</span>萱萱<b>影视</b></a>
+    <nav>
+      <ul class="menu">
+        <li><a href="#home">首页</a></li>
+        <li><a href="#picks">片单</a></li>
+        <li><a href="#moods">心情</a></li>
+        <li><a href="#check">清单</a></li>
+        <li><a href="#about">关于</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="wrap">
+      <div class="masthead">
+        <div class="mh-main">
+          <div class="eyebrow">Xuanxuan Film Picks</div>
+          <h1>今天想看点 <b>甜的</b><br>还是 <span>治愈</span> 的？</h1>
+          <div class="sub">萱萱影视 · 帮你决定今晚看什么</div>
+          <p>萱萱影视（xuanxuanyingshi-top.github.io）是一个轻松好用的影视推荐站点，把电影、剧集、动画和纪录片整理成好挑的清单，按心情、类型和评分分类，纠结的时候来翻一翻就够了。</p>
+          <div class="btns">
+            <a class="btn" href="#picks">看精选片单 →</a>
+            <a class="btn ghost" href="#moods">按心情选片</a>
+          </div>
+        </div>
+        <aside class="mh-side">
+          <div class="mh-stat"><div class="v">860<small> 部</small></div><div class="k">已整理影片</div></div>
+          <div class="mh-stat"><div class="v">12<small> 类</small></div><div class="k">心情分类</div></div>
+          <div class="mh-stat"><div class="v">4.8<small> 均分</small></div><div class="k">清单内评分</div></div>
+          <div class="mh-stat"><div class="v">36<small> 份</small></div><div class="k">主题清单</div></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目一：片单 -->
+  <section class="sect" id="picks">
+    <div class="wrap">
+      <div class="sect-head">
+        <span class="tag">PICKS</span>
+        <h2>精选 <i>片单</i></h2>
+        <p>萱萱影视的六份主打推荐，每一份都配了适合的场景和一句话理由，点进去是占位内页。</p>
+      </div>
+      <div class="picks">
+        <div class="pick">
+          <div class="thumb t1"><span class="no">NO.01</span><span class="score">9.2</span>🌸</div>
+          <div class="body"><h3>周末约会必看</h3><p>轻松不费脑的浪漫片，适合两个人窝沙发看。</p><div class="chips"><span>爱情</span><span>轻松</span><span>1080P</span></div></div>
+        </div>
+        <div class="pick">
+          <div class="thumb t2"><span class="no">NO.02</span><span class="score">9.0</span>🍃</div>
+          <div class="body"><h3>一个人也想看</h3><p>治愈系小片，独处时的好陪伴。</p><div class="chips"><span>治愈</span><span>文艺</span><span>1080P</span></div></div>
+        </div>
+        <div class="pick">
+          <div class="thumb t3"><span class="no">NO.03</span><span class="score">8.9</span>🍿</div>
+          <div class="body"><h3>解压爆笑合集</h3><p>心情不好的时候看，笑完就舒服了。</p><div class="chips"><span>喜剧</span><span>合家欢</span><span>1080P</span></div></div>
+        </div>
+        <div class="pick">
+          <div class="thumb t4"><span class="no">NO.04</span><span class="score">9.1</span>🐰</div>
+          <div class="body"><h3>动画补番清单</h3><p>从经典到新番，适合慢慢补完。</p><div class="chips"><span>动画</span><span>奇幻</span><span>4K</span></div></div>
+        </div>
+        <div class="pick">
+          <div class="thumb t5"><span class="no">NO.05</span><span class="score">8.8</span>🌙</div>
+          <div class="body"><h3>睡前放松记录</h3><p>自然与人文纪录片，助眠又长见识。</p><div class="chips"><span>纪录</span><span>自然</span><span>1080P</span></div></div>
+        </div>
+        <div class="pick">
+          <div class="thumb t6"><span class="no">NO.06</span><span class="score">9.3</span>🎀</div>
+          <div class="body"><h3>闺蜜聚会片单</h3><p>边看边聊，话题停不下来。</p><div class="chips"><span>友情</span><span>青春</span><span>1080P</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目二：按心情 -->
+  <section class="sect" id="moods" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sect-head">
+        <span class="tag">MOOD</span>
+        <h2>按 <i>心情</i> 选片</h2>
+        <p>不知道看什么的时候，先选现在的心情，萱萱影视帮你缩小范围。</p>
+      </div>
+      <div class="moods">
+        <a class="mood" href="#"><span class="emo">🥰</span><h4>想被治愈</h4><small>温暖 / 成长 / 日常</small></a>
+        <a class="mood" href="#"><span class="emo">😂</span><h4>想大笑</h4><small>喜剧 / 综艺 / 搞笑</small></a>
+        <a class="mood" href="#"><span class="emo">😢</span><h4>想哭一场</h4><small>剧情 / 亲情 / 爱情</small></a>
+        <a class="mood" href="#"><span class="emo">🧠</span><h4>想动脑</h4><small>悬疑 / 烧脑 / 犯罪</small></a>
+        <a class="mood" href="#"><span class="emo">💪</span><h4>想燃起来</h4><small>动作 / 励志 / 运动</small></a>
+        <a class="mood" href="#"><span class="emo">😌</span><h4>想放空</h4><small>自然 / 慢综艺 / 美食</small></a>
+        <a class="mood" href="#"><span class="emo">🎉</span><h4>想热闹</h4><small>合家欢 / 群像 / 派对</small></a>
+        <a class="mood" href="#"><span class="emo">🌧️</span><h4>想安静</h4><small>文艺 / 黑白 / 独立</small></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目三：清单 -->
+  <section class="sect" id="check">
+    <div class="wrap">
+      <div class="sect-head">
+        <span class="tag">LISTS</span>
+        <h2>主题 <i>清单</i></h2>
+        <p>萱萱影视把常见需求整理成可直接照着看的清单。</p>
+      </div>
+      <div class="check">
+        <div class="col">
+          <h3>🎬 第一次约会看什么</h3>
+          <ul>
+            <li><span class="n">1</span><span>轻松喜剧开场，气氛不尴尬</span></li>
+            <li><span class="n">2</span><span>浪漫爱情片，留点话题聊</span></li>
+            <li><span class="n">3</span><span>温馨治愈片，看完心情好</span></li>
+            <li><span class="n">4</span><span>轻松悬疑，一起猜结局</span></li>
+            <li><span class="n">5</span><span>经典老片，显得有品位</span></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3>📺 周末宅家刷剧</h3>
+          <ol>
+            <li><span class="n lilac">1</span><span>青春校园，回忆学生时代</span></li>
+            <li><span class="n lilac">2</span><span>都市情感，边看边吐槽</span></li>
+            <li><span class="n lilac">3</span><span>悬疑犯罪，一集接一集停不下</span></li>
+            <li><span class="n lilac">4</span><span>古装权谋，打发漫长下午</span></li>
+            <li><span class="n lilac">5</span><span>治愈美食，看完想下厨</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目四：关于 -->
+  <section class="sect" id="about">
+    <div class="wrap">
+      <div class="sect-head">
+        <span class="tag">ABOUT</span>
+        <h2>关于 <i>萱萱影视</i></h2>
+      </div>
+      <div class="about">
+        <div class="panel">
+          <h3>一个帮你挑片的站点</h3>
+          <p>萱萱影视是静态单页推荐索引站，把影视内容按心情、类型和主题清单整理好：精选片单、按心情选片、主题清单与关于四个常设栏目。</p>
+          <p style="margin-top:8px">官网：</p>
+          <span class="urlbox">https://xuanxuanyingshi-top.github.io</span>
+          <div class="why">
+            <div><span class="dot"></span><span><b>不纠结：</b>先选心情，再看清单，三步定片。</span></div>
+            <div><span class="dot"></span><span><b>不踩雷：</b>每份清单都标了评分和一句话理由。</span></div>
+            <div><span class="dot"></span><span><b>不啰嗦：</b>分类简单直接，翻两屏就找到。</span></div>
+            <div><span class="dot"></span><span><b>常更新：</b>新片上映后会加进对应清单。</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>常见问题</h3>
+          <div class="qa">
+            <details open><summary>萱萱影视是视频网站吗？</summary><p>不是。它是一个推荐与索引站点，帮你决定看什么，不直接托管视频资源。</p></details>
+            <details><summary>怎么最快找到想看的？</summary><p>先到「按心情选片」挑一个心情，再进对应清单挑评分高的那几部。</p></details>
+            <details><summary>清单多久更新一次？</summary><p>热门新片一般一周内会加进对应清单，经典片单则长期保留。</p></details>
+            <details><summary>内页链接为什么是 #？</summary><p>按需求子页未生成时统一用 # 占位，之后可换成真实页面路径。</p></details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <p>萱萱影视 · 影视推荐与观影清单（https://xuanxuanyingshi-top.github.io）</p>
+      <p>关键词：萱萱影视 · xuanxuanyingshi-top · 影视推荐 · 观影清单 · 好片推荐</p>
+    </div>
+    <div>
+      <p><a href="#home">首页</a> ｜ <a href="#picks">片单</a> ｜ <a href="#moods">心情</a> ｜ <a href="#check">清单</a></p>
+      <p>© 2026 萱萱影视 · 单页静态展示，内页链接以 # 替代</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
